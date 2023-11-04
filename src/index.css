@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-size: 2.5rem 2.5rem;
+  background-image: radial-gradient(circle, #000000 1px, #504d4e30 1px);
+  /* background-image: linear-gradient(#D3d3d3,#2D3436); */
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.heading {
+  display: inline-flex;
+  background-color: #00000027;
+  font-family: "Pixelify Sans", sans-serif;
+  text-align: center;
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.main-container {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.controller {
+  position: absolute;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  width: 10rem;
+  height: 10rem;
+  background-color: #dad3935f;
+  border: 1px solid #dad393;
+  border-radius: 10px;
+  padding: 1rem;
+}
+form {
+  display: flex;
+  width: 10rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+form input[type="number"] {
+  border: 1px solid black;
+  background: #504d4e57;
+  border-radius: 5px;
+  width: 4rem;
+  height: 2rem;
+}
+form input[type="submit"] {
+  width: 4rem;
+  border-radius: 5px;
+  height: 2rem;
+  border: 1px solid #6ca59c;
+  background: #6ca59c7b;
+}
+form input[type="reset"] {
+  width: 6rem;
+  height: 2rem;
+  border: 1px solid #fb5d59;
+  border-radius: 5px;
+  background-color: #fb5c597b;
+}
+.canvas {
+  border: 1px solid red;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.obj {
+  width: 60px;
+  height: 60px;
+  background-color: #6ca59c;
+  border: 2px solid #00000070;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row {
+  display: flex;
+  flex-direction: row-reverse;
+}
