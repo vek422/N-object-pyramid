@@ -23,7 +23,7 @@ function merge(left, right) {
 
   // Compare elements from the left and right arrays and merge them in sorted order
   while (leftIndex < left.length && rightIndex < right.length) {
-    if (left[leftIndex] < right[rightIndex]) {
+    if (left[leftIndex].wt < right[rightIndex].wt) {
       result.push(left[leftIndex]);
       leftIndex++;
     } else {

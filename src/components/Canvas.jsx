@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { mergeSort } from "../utilities/mergeSort";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 function solveK(n) {
   let a = 1,
     b = 1,
@@ -39,38 +39,49 @@ const someFunction = (objkts) => {
   return finalArray;
 };
 
-function renderBlocks(objkts) {
-  let rowConst = 0,
-    blockConst = 0;
-
+function renderBlocks(objkts, handleRemoveObject) {
+  let rowConst = 0;
   const finalArray = someFunction(objkts);
 
-  return finalArray.map((row) => (
-    <motion.div className="row" key={`row-${rowConst++}`}>
+  let height = finalArray.length;
+  let elements = finalArray.map((row) => (
+    <motion.div className="row" key={`row-${rowConst++}`} layoutRoot>
       {row.map((block) => (
         <motion.div
           layout
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 40, opacity: 0 }}
+          transition={{ duration: 0.5, ease: "backInOut" }}
+          initial={{ y: -100, scale: 0, opacity: 0 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
           className="obj"
-          key={`block-4${blockConst++}`}
+          key={block.id}
+          onDoubleClick={() => {
+            handleRemoveObject(block.id);
+          }}
         >
-          <p className="value">{block}</p>
+          <p className="value">{block.wt}</p>
         </motion.div>
       ))}
     </motion.div>
   ));
+  return {
+    height,
+    elements,
+  };
 }
 // eslint-disable-next-line react/prop-types
-export default function Canvas({ objkts }) {
+export default function Canvas({ objkts, setHeight, handleRemoveObject }) {
   const [x, setX] = useState([]);
   useEffect(() => {
-    setX(renderBlocks(objkts));
+    let { elements, height } = renderBlocks(objkts, handleRemoveObject);
+    setHeight(height);
+    setX(elements);
   }, [objkts]);
+  console.log(x);
   return (
     <div className="canvas">
-      <AnimatePresence>{x}</AnimatePresence>
+      <AnimatePresence>
+        <LayoutGroup>{x}</LayoutGroup>
+      </AnimatePresence>
     </div>
   );
 }
