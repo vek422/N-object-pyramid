@@ -46,12 +46,12 @@ input[type="number"] {
 .controller {
   position: fixed;
   margin-top: 2rem;
-  margin-left: 2rem;
   background-color: #dad39398;
   border: 1px solid #dad393;
   border-radius: 10px;
   padding: 1rem;
 }
+
 form {
   display: flex;
   width: 10rem;
@@ -126,4 +126,16 @@ form input[type="button"] {
   font-size: 0.8rem;
   font-weight: 400;
   color: #fb5d59;
+}
+@media (max-width: 600px) {
+  .controller {
+    display: flex;
+    bottom: 0vh;
+    left: 0;
+    width: 100%;
+    padding: 5rem 1rem;
+  }
+  .stats {
+    margin-top: 0;
+  }
 }
